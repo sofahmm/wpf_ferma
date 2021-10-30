@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="af5c5e1693da4fec9286843121d5e610" Name="Diagram1">
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Horse" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Horse_health" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Retail_Network" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Sorting_Center" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Sorting_Center_report_" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.The_can" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="Кумысная_фермаModel.FK_Horse_health_Horse" ManuallyRouted="false" />
+        <AssociationConnector Association="Кумысная_фермаModel.FK_The_can_Horse" ManuallyRouted="false" />
+        <AssociationConnector Association="Кумысная_фермаModel.FK_The_can_Retail_Network" ManuallyRouted="false" />
+        <AssociationConnector Association="Кумысная_фермаModel.FK_Sorting_Center_report__Sorting_Center" ManuallyRouted="false" />
+        <AssociationConnector Association="Кумысная_фермаModel.Delivery_plan" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Users" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

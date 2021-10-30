@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Кумысная_фермаModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Delivery_plan">
+          <Key>
+            <PropertyRef Name="ID_retail_network" />
+            <PropertyRef Name="ID_Sorting_Center" />
+          </Key>
+          <Property Name="ID_retail_network" Type="int" Nullable="false" />
+          <Property Name="ID_Sorting_Center" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Horse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Age_of_the_foal" Type="int" />
+        </EntityType>
+        <EntityType Name="Horse_health">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID_Horse" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Body_mass_index" Type="int" />
+          <Property Name="Body_temperature" Type="float" />
+          <Property Name="Dental_condition" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Retail_Network">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sorting_Center">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sorting_Center(report)">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="Number_of_cans_delivered" Type="int" />
+          <Property Name="Total_amount_of_milk_(in_liters)" Type="int" Nullable="false" />
+          <Property Name="Average_product_temperature" Type="int" />
+          <Property Name="Average_coagulability (as_a_%)" Type="int" />
+          <Property Name="ID_Sorting_Center" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="The_can">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Horse" Type="int" />
+          <Property Name="ID_Retail_network" Type="int" />
+          <Property Name="ID_Sorting_Center" Type="int" />
+          <Property Name="Volume_of_the_can" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Login" Type="varchar(max)" />
+          <Property Name="Password" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_Delivery_plan_Retail_Network">
+          <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="1" />
+          <End Role="Delivery_plan" Type="Self.Delivery_plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retail_Network">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Delivery_plan">
+              <PropertyRef Name="ID_retail_network" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Delivery_plan_Sorting_Center">
+          <End Role="Sorting_Center" Type="Self.Sorting_Center" Multiplicity="1" />
+          <End Role="Delivery_plan" Type="Self.Delivery_plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sorting_Center">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Delivery_plan">
+              <PropertyRef Name="ID_Sorting_Center" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Horse_health_Horse">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="0..1" />
+          <End Role="Horse_health" Type="Self.Horse_health" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Horse_health">
+              <PropertyRef Name="ID_Horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sorting_Center(report)_Sorting_Center">
+          <End Role="Sorting_Center" Type="Self.Sorting_Center" Multiplicity="0..1" />
+          <End Role="Sorting_Center(report)" Type="Self.Sorting_Center(report)" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sorting_Center">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sorting_Center(report)">
+              <PropertyRef Name="ID_Sorting_Center" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_The_can_Horse">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="0..1" />
+          <End Role="The_can" Type="Self.The_can" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="The_can">
+              <PropertyRef Name="ID_Horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_The_can_Retail_Network">
+          <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="0..1" />
+          <End Role="The_can" Type="Self.The_can" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retail_Network">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="The_can">
+              <PropertyRef Name="ID_Retail_network" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Кумысная_фермаModelStoreContainer">
+          <EntitySet Name="Delivery_plan" EntityType="Self.Delivery_plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horse" EntityType="Self.Horse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Horse_health" EntityType="Self.Horse_health" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Retail_Network" EntityType="Self.Retail_Network" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sorting_Center" EntityType="Self.Sorting_Center" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sorting_Center(report)" EntityType="Self.Sorting_Center(report)" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="The_can" EntityType="Self.The_can" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Delivery_plan_Retail_Network" Association="Self.FK_Delivery_plan_Retail_Network">
+            <End Role="Retail_Network" EntitySet="Retail_Network" />
+            <End Role="Delivery_plan" EntitySet="Delivery_plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Delivery_plan_Sorting_Center" Association="Self.FK_Delivery_plan_Sorting_Center">
+            <End Role="Sorting_Center" EntitySet="Sorting_Center" />
+            <End Role="Delivery_plan" EntitySet="Delivery_plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Horse_health_Horse" Association="Self.FK_Horse_health_Horse">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="Horse_health" EntitySet="Horse_health" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sorting_Center(report)_Sorting_Center" Association="Self.FK_Sorting_Center(report)_Sorting_Center">
+            <End Role="Sorting_Center" EntitySet="Sorting_Center" />
+            <End Role="Sorting_Center(report)" EntitySet="Sorting_Center(report)" />
+          </AssociationSet>
+          <AssociationSet Name="FK_The_can_Horse" Association="Self.FK_The_can_Horse">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="The_can" EntitySet="The_can" />
+          </AssociationSet>
+          <AssociationSet Name="FK_The_can_Retail_Network" Association="Self.FK_The_can_Retail_Network">
+            <End Role="Retail_Network" EntitySet="Retail_Network" />
+            <End Role="The_can" EntitySet="The_can" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Кумысная_фермаModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Horse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Age_of_the_foal" Type="Int32" />
+          <NavigationProperty Name="Horse_health" Relationship="Self.FK_Horse_health_Horse" FromRole="Horse" ToRole="Horse_health" />
+          <NavigationProperty Name="The_can" Relationship="Self.FK_The_can_Horse" FromRole="Horse" ToRole="The_can" />
+        </EntityType>
+        <EntityType Name="Horse_health">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Horse" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Body_mass_index" Type="Int32" />
+          <Property Name="Body_temperature" Type="Double" />
+          <Property Name="Dental_condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK_Horse_health_Horse" FromRole="Horse_health" ToRole="Horse" />
+        </EntityType>
+        <EntityType Name="Retail_Network">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="The_can" Relationship="Self.FK_The_can_Retail_Network" FromRole="Retail_Network" ToRole="The_can" />
+          <NavigationProperty Name="Sorting_Center" Relationship="Self.Delivery_plan" FromRole="Retail_Network" ToRole="Sorting_Center" />
+        </EntityType>
+        <EntityType Name="Sorting_Center">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sorting_Center_report_" Relationship="Self.FK_Sorting_Center_report__Sorting_Center" FromRole="Sorting_Center" ToRole="Sorting_Center_report_" />
+          <NavigationProperty Name="Retail_Network" Relationship="Self.Delivery_plan" FromRole="Sorting_Center" ToRole="Retail_Network" />
+        </EntityType>
+        <EntityType Name="Sorting_Center_report_">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Number_of_cans_delivered" Type="Int32" />
+          <Property Name="Total_amount_of_milk__in_liters_" Type="Int32" Nullable="false" />
+          <Property Name="Average_product_temperature" Type="Int32" />
+          <Property Name="Average_coagulability__as_a___" Type="Int32" />
+          <Property Name="ID_Sorting_Center" Type="Int32" />
+          <NavigationProperty Name="Sorting_Center" Relationship="Self.FK_Sorting_Center_report__Sorting_Center" FromRole="Sorting_Center_report_" ToRole="Sorting_Center" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="The_can">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Horse" Type="Int32" />
+          <Property Name="ID_Retail_network" Type="Int32" />
+          <Property Name="ID_Sorting_Center" Type="Int32" />
+          <Property Name="Volume_of_the_can" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Horse" Relationship="Self.FK_The_can_Horse" FromRole="The_can" ToRole="Horse" />
+          <NavigationProperty Name="Retail_Network" Relationship="Self.FK_The_can_Retail_Network" FromRole="The_can" ToRole="Retail_Network" />
+        </EntityType>
+        <Association Name="FK_Horse_health_Horse">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="0..1" />
+          <End Role="Horse_health" Type="Self.Horse_health" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Horse_health">
+              <PropertyRef Name="ID_Horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_The_can_Horse">
+          <End Role="Horse" Type="Self.Horse" Multiplicity="0..1" />
+          <End Role="The_can" Type="Self.The_can" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Horse">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="The_can">
+              <PropertyRef Name="ID_Horse" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_The_can_Retail_Network">
+          <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="0..1" />
+          <End Role="The_can" Type="Self.The_can" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Retail_Network">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="The_can">
+              <PropertyRef Name="ID_Retail_network" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sorting_Center_report__Sorting_Center">
+          <End Role="Sorting_Center" Type="Self.Sorting_Center" Multiplicity="0..1" />
+          <End Role="Sorting_Center_report_" Type="Self.Sorting_Center_report_" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sorting_Center">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sorting_Center_report_">
+              <PropertyRef Name="ID_Sorting_Center" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Delivery_plan">
+          <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="*" />
+          <End Role="Sorting_Center" Type="Self.Sorting_Center" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="KumysEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Horse" EntityType="Self.Horse" />
+          <EntitySet Name="Horse_health" EntityType="Self.Horse_health" />
+          <EntitySet Name="Retail_Network" EntityType="Self.Retail_Network" />
+          <EntitySet Name="Sorting_Center" EntityType="Self.Sorting_Center" />
+          <EntitySet Name="Sorting_Center_report_" EntityType="Self.Sorting_Center_report_" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="The_can" EntityType="Self.The_can" />
+          <AssociationSet Name="FK_Horse_health_Horse" Association="Self.FK_Horse_health_Horse">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="Horse_health" EntitySet="Horse_health" />
+          </AssociationSet>
+          <AssociationSet Name="FK_The_can_Horse" Association="Self.FK_The_can_Horse">
+            <End Role="Horse" EntitySet="Horse" />
+            <End Role="The_can" EntitySet="The_can" />
+          </AssociationSet>
+          <AssociationSet Name="FK_The_can_Retail_Network" Association="Self.FK_The_can_Retail_Network">
+            <End Role="Retail_Network" EntitySet="Retail_Network" />
+            <End Role="The_can" EntitySet="The_can" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sorting_Center_report__Sorting_Center" Association="Self.FK_Sorting_Center_report__Sorting_Center">
+            <End Role="Sorting_Center" EntitySet="Sorting_Center" />
+            <End Role="Sorting_Center_report_" EntitySet="Sorting_Center_report_" />
+          </AssociationSet>
+          <AssociationSet Name="Delivery_plan" Association="Self.Delivery_plan">
+            <End Role="Retail_Network" EntitySet="Retail_Network" />
+            <End Role="Sorting_Center" EntitySet="Sorting_Center" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="Кумысная_фермаModel.Users" />
+        </EntityContainer>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Кумысная_фермаModelStoreContainer" CdmEntityContainer="KumysEntities">
+          <EntitySetMapping Name="Horse">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Horse">
+              <MappingFragment StoreEntitySet="Horse">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Age_of_the_foal" ColumnName="Age_of_the_foal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Horse_health">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Horse_health">
+              <MappingFragment StoreEntitySet="Horse_health">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Horse" ColumnName="ID_Horse" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Body_mass_index" ColumnName="Body_mass_index" />
+                <ScalarProperty Name="Body_temperature" ColumnName="Body_temperature" />
+                <ScalarProperty Name="Dental_condition" ColumnName="Dental_condition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Retail_Network">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Retail_Network">
+              <MappingFragment StoreEntitySet="Retail_Network">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sorting_Center">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Sorting_Center">
+              <MappingFragment StoreEntitySet="Sorting_Center">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sorting_Center_report_">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Sorting_Center_report_">
+              <MappingFragment StoreEntitySet="Sorting_Center(report)">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Number_of_cans_delivered" ColumnName="Number_of_cans_delivered" />
+                <ScalarProperty Name="Total_amount_of_milk__in_liters_" ColumnName="Total_amount_of_milk_(in_liters)" />
+                <ScalarProperty Name="Average_product_temperature" ColumnName="Average_product_temperature" />
+                <ScalarProperty Name="Average_coagulability__as_a___" ColumnName="Average_coagulability (as_a_%)" />
+                <ScalarProperty Name="ID_Sorting_Center" ColumnName="ID_Sorting_Center" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="The_can">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.The_can">
+              <MappingFragment StoreEntitySet="The_can">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_Horse" ColumnName="ID_Horse" />
+                <ScalarProperty Name="ID_Retail_network" ColumnName="ID_Retail_network" />
+                <ScalarProperty Name="ID_Sorting_Center" ColumnName="ID_Sorting_Center" />
+                <ScalarProperty Name="Volume_of_the_can" ColumnName="Volume_of_the_can" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Delivery_plan" TypeName="Кумысная_фермаModel.Delivery_plan" StoreEntitySet="Delivery_plan">
+            <EndProperty Name="Retail_Network">
+              <ScalarProperty Name="ID" ColumnName="ID_retail_network" />
+            </EndProperty>
+            <EndProperty Name="Sorting_Center">
+              <ScalarProperty Name="ID" ColumnName="ID_Sorting_Center" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Кумысная_фермаModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
