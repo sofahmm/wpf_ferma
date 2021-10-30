@@ -88,6 +88,7 @@
           <Property Name="Name" Type="varchar(max)" />
           <Property Name="Login" Type="varchar(max)" />
           <Property Name="Password" Type="varchar(max)" />
+          <Property Name="Specialization" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Delivery_plan_Retail_Network">
           <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="1" />
@@ -367,6 +368,7 @@
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Specialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -459,6 +461,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Кумысная_фермаModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

@@ -48,7 +48,9 @@ namespace wpf_ferma
             var a = users.Where(s => s.Login == txt_login.Text && s.Password == txt_password.Password).FirstOrDefault();
             if (a != null)
             {
-                MessageBox.Show("Sucsesfull");
+                //MessageBox.Show("Sucsesfull");
+                UserWin us = new UserWin();
+                NavigationService.Navigate( us );
             }
 
         }

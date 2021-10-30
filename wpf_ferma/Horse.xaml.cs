@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace wpf_ferma
 {
     /// <summary>
-    /// Interaction logic for Registr.xaml
+    /// Interaction logic for Horse.xaml
     /// </summary>
-    public partial class Registr : Page
+    public partial class Horse : Page
     {
-        public Registr()
+        public Horse()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var a = new Users();
-            a.Name = txt_name.Text;
-            a.Login = txt_login.Text;
-            a.Password = txt_password.Password;
-            DataBaseConnect.connection.Users.Add(a);
-            DataBaseConnect.connection.SaveChanges();
-            NavigationService.GoBack();
-
         }
     }
 }
