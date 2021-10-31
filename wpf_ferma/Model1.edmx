@@ -21,6 +21,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Age" Type="int" />
           <Property Name="Age_of_the_foal" Type="int" />
+          <Property Name="img" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Horse_health">
           <Key>
@@ -89,6 +90,7 @@
           <Property Name="Login" Type="varchar(max)" />
           <Property Name="Password" Type="varchar(max)" />
           <Property Name="Specialization" Type="varchar(max)" />
+          <Property Name="Img" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK_Delivery_plan_Retail_Network">
           <End Role="Retail_Network" Type="Self.Retail_Network" Multiplicity="1" />
@@ -211,6 +213,7 @@
           <Property Name="Age_of_the_foal" Type="Int32" />
           <NavigationProperty Name="Horse_health" Relationship="Self.FK_Horse_health_Horse" FromRole="Horse" ToRole="Horse_health" />
           <NavigationProperty Name="The_can" Relationship="Self.FK_The_can_Horse" FromRole="Horse" ToRole="The_can" />
+          <Property Name="img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Horse_health">
           <Key>
@@ -369,6 +372,7 @@
           <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Specialization" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -379,6 +383,7 @@
           <EntitySetMapping Name="Horse">
             <EntityTypeMapping TypeName="Кумысная_фермаModel.Horse">
               <MappingFragment StoreEntitySet="Horse">
+                <ScalarProperty Name="img" ColumnName="img" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
@@ -461,6 +466,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Кумысная_фермаModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Img" ColumnName="Img" />
                 <ScalarProperty Name="Specialization" ColumnName="Specialization" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />

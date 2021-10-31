@@ -25,6 +25,7 @@ namespace wpf_ferma
         public string Name { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> Age_of_the_foal { get; set; }
+        public string img { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Horse_health> Horse_health { get; set; }

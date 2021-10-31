@@ -19,5 +19,6 @@ namespace wpf_ferma
         public string Login { get; set; }
         public string Password { get; set; }
         public string Specialization { get; set; }
+        public string Img { get; set; }
     }
 }
