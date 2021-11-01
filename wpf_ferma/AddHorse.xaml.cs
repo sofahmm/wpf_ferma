@@ -16,25 +16,23 @@ using System.Windows.Shapes;
 namespace wpf_ferma
 {
     /// <summary>
-    /// Interaction logic for Registr.xaml
+    /// Interaction logic for AddHorse.xaml
     /// </summary>
-    public partial class Registr : Page
+    public partial class AddHorse : Page
     {
-        public Registr()
+        public AddHorse()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btn_click_save(object sender, RoutedEventArgs e)
         {
-            var a = new Users();
-            a.Name = txt_name.Text;
-            a.Login = txt_login.Text;
-            a.Password = txt_password.Password;
-            DataBaseConnect.connection.Users.Add(a);
+            var h = new Horse();
+            h.Name = txt_name.Text;
+            h.Age = Convert.ToInt32(txt_age.Text);
+            h.Age_of_the_foal = Convert.ToInt32(txt_agefoal.Text);
+            DataBaseConnect.connection.Horse.Add(h);
             DataBaseConnect.connection.SaveChanges();
-            NavigationService.GoBack();
-
         }
     }
 }

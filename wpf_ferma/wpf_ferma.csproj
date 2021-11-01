@@ -64,11 +64,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddHorse.xaml.cs">
+      <DependentUpon>AddHorse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdmAuth.xaml.cs">
       <DependentUpon>AdmAuth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdmHorses.xaml.cs">
+      <DependentUpon>AdmHorses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPage.xaml.cs">
       <DependentUpon>AdminPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReg.xaml.cs">
+      <DependentUpon>AdminReg.xaml</DependentUpon>
     </Compile>
     <Compile Include="Courier.xaml.cs">
       <DependentUpon>Courier.xaml</DependentUpon>
@@ -95,9 +104,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Registr.xaml.cs">
-      <DependentUpon>Registr.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Retail_Network.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -122,11 +128,27 @@
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include=".xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddHorse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdmAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdmHorses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminReg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,10 +168,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Registr.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="VetAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

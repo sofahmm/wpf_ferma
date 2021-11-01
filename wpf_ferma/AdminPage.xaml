@@ -12,9 +12,14 @@
         <Grid Width="395" HorizontalAlignment="Left">
             <Grid Height="225" VerticalAlignment="Top"/>
         </Grid>
-        <Grid Width="395" HorizontalAlignment="Right">
-            
-        </Grid>
+        <StackPanel Width="395" HorizontalAlignment="Right">
+            <Button Name="btn_registr" Height="55" Content="Зарегистрировать нового пользователя" Margin="10" Click="btn_click"/>
+            <Button Name="btn_horse" Height="55" Content="Добавить/изменить информацию о лошадке" Margin="10" Click="btn_click1"/>
+            <Button Name="btn_horseHealth" Height="55" Content="Состояние здоровья лошадки" Margin="10" Click="btn_click2"/>
+            <Button Name="btn_retNetwork" Height="55" Content="Розничные сети" Margin="10" Click="btn_click3"/>
+            <Button Name="btn_SortCentr" Height="55" Content="Сортировочные центры" Margin="10" Click="btn_click4"/>
+            <Button Name="btn_SortCentrReport" Height="55" Content="Отчет из сортировочных центров" Margin="10" Click="btn_click5" Cursor="Cross"/>
+        </StackPanel>
         <!--<ListView ItemsSource="{Binding use}" SelectionChanged="LVChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>

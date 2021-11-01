@@ -36,5 +36,37 @@ namespace wpf_ferma
             AdminPage win = new AdminPage(a);
             NavigationService.GetNavigationService(win);*/
         }
+
+        private void btn_click(object sender, RoutedEventArgs e)
+        {
+            AdminReg r = new AdminReg();
+            NavigationService.Navigate(r);
+        }
+
+        private void btn_click1(object sender, RoutedEventArgs e)
+        {
+            AdmHorses h = new AdmHorses();
+            NavigationService.Navigate(h);
+        }
+
+        private void btn_click2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_click3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_click4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_click5(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
