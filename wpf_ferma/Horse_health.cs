@@ -20,6 +20,7 @@ namespace wpf_ferma
         public Nullable<int> Body_mass_index { get; set; }
         public Nullable<double> Body_temperature { get; set; }
         public string Dental_condition { get; set; }
+        public Nullable<System.DateTime> DataReport { get; set; }
     
         public virtual Horse Horse { get; set; }
     }

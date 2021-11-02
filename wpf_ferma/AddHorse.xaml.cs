@@ -33,6 +33,7 @@ namespace wpf_ferma
             h.Age_of_the_foal = Convert.ToInt32(txt_agefoal.Text);
             DataBaseConnect.connection.Horse.Add(h);
             DataBaseConnect.connection.SaveChanges();
+            NavigationService.GoBack();
         }
     }
 }

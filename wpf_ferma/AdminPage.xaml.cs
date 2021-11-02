@@ -51,7 +51,8 @@ namespace wpf_ferma
 
         private void btn_click2(object sender, RoutedEventArgs e)
         {
-
+            HorseHealth hel = new HorseHealth();
+            NavigationService.Navigate(hel);
         }
 
         private void btn_click3(object sender, RoutedEventArgs e)
