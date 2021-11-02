@@ -67,6 +67,9 @@
     <Compile Include="AddHorse.xaml.cs">
       <DependentUpon>AddHorse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddRetWet.xaml.cs">
+      <DependentUpon>AddRetWet.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdmAuth.xaml.cs">
       <DependentUpon>AdmAuth.xaml</DependentUpon>
     </Compile>
@@ -131,6 +134,9 @@
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="VetAdd.xaml.cs">
+      <DependentUpon>VetAdd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VetAuth.xaml.cs">
       <DependentUpon>VetAuth.xaml</DependentUpon>
     </Compile>
@@ -142,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddHorse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddRetWet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +196,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RetailNetwork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VetAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

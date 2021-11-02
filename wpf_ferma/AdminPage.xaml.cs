@@ -57,7 +57,7 @@ namespace wpf_ferma
 
         private void btn_click3(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new RetailNetwork());
         }
 
         private void btn_click4(object sender, RoutedEventArgs e)
