@@ -17,33 +17,31 @@ using System.Collections.ObjectModel;
 namespace wpf_ferma
 {
     /// <summary>
-    /// Interaction logic for RetailNetwork.xaml
+    /// Interaction logic for SortCentRep.xaml
     /// </summary>
-    public partial class RetailNetwork : Page
+    public partial class SortCentRep : Page
     {
-        public static ObservableCollection<Retail_Network> retail_Networks { get; set; }
-        public RetailNetwork()
+
+        public SortCentRep()
         {
             InitializeComponent();
-            retail_Networks = new ObservableCollection<Retail_Network>(DataBaseConnect.connection.Retail_Network.ToList());
+           
             this.DataContext = this;
         }
 
         private void search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            listUser.ItemsSource = DataBaseConnect.connection.Retail_Network.Where(x => x.Name.ToString().Contains(search.Text)).ToList();
+            listUser.ItemsSource = DataBaseConnect.connection.Sorting_Center_report_.Where(x => x.Data.ToString().Contains(search.Text)).ToList();
         }
 
         private void listUser_Loaded(object sender, RoutedEventArgs e)
         {
-            listUser.ItemsSource = DataBaseConnect.connection.Retail_Network.ToList();
+            listUser.ItemsSource = DataBaseConnect.connection.Sorting_Center_report_.ToList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddRetWet a = new AddRetWet();
-            NavigationService.Navigate(a);
-            this.DataContext = this;
+            NavigationService.Navigate(new ReportAdd());
         }
     }
 }

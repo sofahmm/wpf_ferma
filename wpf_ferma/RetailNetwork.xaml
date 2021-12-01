@@ -15,7 +15,7 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Имя" Width="50" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
-                        <GridViewColumn Header="Возраст" Width="50" DisplayMemberBinding="{Binding Addres}"></GridViewColumn>
+                        <GridViewColumn Header="Адрес" Width="50" DisplayMemberBinding="{Binding Address}"></GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>

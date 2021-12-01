@@ -35,8 +35,7 @@ namespace wpf_ferma
             {
                 if (a.Specialization == "Ветеринар")
                 {
-                    AdminPage us = new AdminPage();
-                    NavigationService.Navigate(us);
+                    NavigationService.Navigate(new VetAdd());
                     MessageBox.Show("Пошли пить Кумыс, " + a.Name);
                 }
                 else
@@ -44,8 +43,8 @@ namespace wpf_ferma
                     MessageBox.Show("Попробуй ввести заново!");
                 }
                 //MessageBox.Show("Sucsesfull");
-
             }
+
         }
     }
 }

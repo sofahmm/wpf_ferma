@@ -17,7 +17,6 @@ namespace wpf_ferma
         public int ID { get; set; }
         public Nullable<System.DateTime> Data { get; set; }
         public Nullable<int> Number_of_cans_delivered { get; set; }
-        public int Total_amount_of_milk__in_liters_ { get; set; }
         public Nullable<int> Average_product_temperature { get; set; }
         public Nullable<int> Average_coagulability__as_a___ { get; set; }
         public Nullable<int> ID_Sorting_Center { get; set; }

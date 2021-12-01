@@ -12,25 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace wpf_ferma
 {
     /// <summary>
-    /// Interaction logic for AddRetWet.xaml
+    /// Interaction logic for ReportAdd.xaml
     /// </summary>
-    public partial class AddRetWet : Page
+    public partial class ReportAdd : Page
     {
-        public AddRetWet()
+        public static ObservableCollection<Sorting_Center_report_> sortings { get; set; }
+        public ReportAdd()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var r = new Retail_Network();
-            r.Name = txt_name.Text;
-            r.Address = txt_addres.Text;
-            DataBaseConnect.connection.Retail_Network.Add(r);
+            var r = new Sorting_Center_report_();
+            r.Data = Convert.ToDateTime(txt_name.Text);
+            r.Number_of_cans_delivered = Convert.ToInt32(txt_addres.Text);
+            r.Average_product_temperature = Convert.ToInt32(txt_nae.Text);
+            r.ID_Sorting_Center = Convert.ToInt32(txt_adres.Text);
+            DataBaseConnect.connection.Sorting_Center_report_.Add(r);
             DataBaseConnect.connection.SaveChanges();
             NavigationService.GoBack();
         }

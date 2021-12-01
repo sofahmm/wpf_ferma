@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="Кумысная_фермаModel.Horse_health" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Кумысная_фермаModel.Retail_Network" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Кумысная_фермаModel.Sorting_Center" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Кумысная_фермаModel.Sorting_Center_report_" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Кумысная_фермаModel.Sorting_Center_report_" Width="2.625" PointX="8.625" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Кумысная_фермаModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Кумысная_фермаModel.The_can" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
         <AssociationConnector Association="Кумысная_фермаModel.FK_Horse_health_Horse" ManuallyRouted="false" />

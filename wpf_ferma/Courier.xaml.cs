@@ -35,8 +35,7 @@ namespace wpf_ferma
             {
                 if (a.Specialization == "Курьер")
                 {
-                    AdminPage us = new AdminPage();
-                    NavigationService.Navigate(us);
+                    NavigationService.Navigate(new CourierAdd());
                     MessageBox.Show("Пошли пить Кумыс, " + a.Name);
                 }
                 else

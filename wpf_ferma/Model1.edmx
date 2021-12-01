@@ -57,7 +57,6 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Data" Type="datetime" />
           <Property Name="Number_of_cans_delivered" Type="int" />
-          <Property Name="Total_amount_of_milk_(in_liters)" Type="int" Nullable="false" />
           <Property Name="Average_product_temperature" Type="int" />
           <Property Name="Average_coagulability (as_a_%)" Type="int" />
           <Property Name="ID_Sorting_Center" Type="int" />
@@ -255,7 +254,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Data" Type="DateTime" Precision="3" />
           <Property Name="Number_of_cans_delivered" Type="Int32" />
-          <Property Name="Total_amount_of_milk__in_liters_" Type="Int32" Nullable="false" />
           <Property Name="Average_product_temperature" Type="Int32" />
           <Property Name="Average_coagulability__as_a___" Type="Int32" />
           <Property Name="ID_Sorting_Center" Type="Int32" />
@@ -429,7 +427,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Number_of_cans_delivered" ColumnName="Number_of_cans_delivered" />
-                <ScalarProperty Name="Total_amount_of_milk__in_liters_" ColumnName="Total_amount_of_milk_(in_liters)" />
                 <ScalarProperty Name="Average_product_temperature" ColumnName="Average_product_temperature" />
                 <ScalarProperty Name="Average_coagulability__as_a___" ColumnName="Average_coagulability (as_a_%)" />
                 <ScalarProperty Name="ID_Sorting_Center" ColumnName="ID_Sorting_Center" />

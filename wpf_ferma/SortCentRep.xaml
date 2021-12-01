@@ -1,0 +1,27 @@
+﻿<Page x:Class="wpf_ferma.SortCentRep"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpf_ferma"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SortCentRep">
+
+    <Grid>
+        <StackPanel>
+            <TextBox x:Name="search" Width="150" TextChanged="search_TextChanged"/>
+            <ListView x:Name="listUser" Height="300" Loaded="listUser_Loaded" ItemsSource="{Binding rep}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Дата" Width="50" DisplayMemberBinding="{Binding Data}"></GridViewColumn>
+                        <GridViewColumn Header="Номер бидона" Width="50" DisplayMemberBinding="{Binding Number_of_cans_delivered}"></GridViewColumn>
+                        <GridViewColumn Header="Средняя температура" Width="50" DisplayMemberBinding="{Binding Average_product_temperature}"></GridViewColumn>
+                        <GridViewColumn Header="Сортировочный центр" Width="50" DisplayMemberBinding="{Binding ID_Sorting_Center}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Width="150" Height="50"  Content="Добавить" Click="Button_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

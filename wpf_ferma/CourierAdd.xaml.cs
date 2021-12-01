@@ -16,23 +16,23 @@ using System.Windows.Shapes;
 namespace wpf_ferma
 {
     /// <summary>
-    /// Interaction logic for VetAdd.xaml
+    /// Interaction logic for CourierAdd.xaml
     /// </summary>
-    public partial class VetAdd : Page
+    public partial class CourierAdd : Page
     {
-        public VetAdd()
+        public CourierAdd()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AdmHorses());
+            NavigationService.Navigate(new RetailNetwork());
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new HorseHealth());
+            NavigationService.Navigate(new SortingCenter());
         }
     }
 }

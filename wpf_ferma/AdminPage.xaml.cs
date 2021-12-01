@@ -62,12 +62,12 @@ namespace wpf_ferma
 
         private void btn_click4(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new SortingCenter());
         }
 
         private void btn_click5(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new SortCentRep());
         }
     }
 }
