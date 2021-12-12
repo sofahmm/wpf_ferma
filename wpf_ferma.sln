@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf_ferma", "wpf_ferma\wpf_ferma.csproj", "{AF944290-B0B2-477A-B2A6-D1F3839E4ADC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFerma", "WebFerma\WebFerma.csproj", "{27126A4B-8888-4085-879A-91C9407FEB06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AF944290-B0B2-477A-B2A6-D1F3839E4ADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF944290-B0B2-477A-B2A6-D1F3839E4ADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF944290-B0B2-477A-B2A6-D1F3839E4ADC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27126A4B-8888-4085-879A-91C9407FEB06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27126A4B-8888-4085-879A-91C9407FEB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27126A4B-8888-4085-879A-91C9407FEB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27126A4B-8888-4085-879A-91C9407FEB06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
