@@ -38,12 +38,5 @@ namespace wpf_ferma
         {
             listUser.ItemsSource = DataBaseConnect.connection.Retail_Network.ToList();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AddRetWet a = new AddRetWet();
-            NavigationService.Navigate(a);
-            this.DataContext = this;
-        }
     }
 }

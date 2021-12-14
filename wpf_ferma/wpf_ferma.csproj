@@ -67,12 +67,15 @@
     <Compile Include="AddHorse.xaml.cs">
       <DependentUpon>AddHorse.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="AddRetWet.xaml.cs">
       <DependentUpon>AddRetWet.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddSortCent.xaml.cs">
       <DependentUpon>AddSortCent.xaml</DependentUpon>
     </Compile>
+=======
+>>>>>>> parent of 60a0820 (Ohh)
     <Compile Include="AdmAuth.xaml.cs">
       <DependentUpon>AdmAuth.xaml</DependentUpon>
     </Compile>
@@ -149,9 +152,6 @@
     <Compile Include="Users.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="VetAdd.xaml.cs">
-      <DependentUpon>VetAdd.xaml</DependentUpon>
-    </Compile>
     <Compile Include="VetAuth.xaml.cs">
       <DependentUpon>VetAuth.xaml</DependentUpon>
     </Compile>
@@ -166,6 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="AddRetWet.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +175,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> parent of 60a0820 (Ohh)
     <Page Include="AdmAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -226,6 +229,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="SortCentRep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +242,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+=======
+>>>>>>> parent of 60a0820 (Ohh)
     <Page Include="VetAuth.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

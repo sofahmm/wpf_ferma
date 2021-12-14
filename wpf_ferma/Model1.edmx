@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="ID_Horse" Type="int" />
           <Property Name="Weight" Type="int" />
           <Property Name="Body_mass_index" Type="int" />

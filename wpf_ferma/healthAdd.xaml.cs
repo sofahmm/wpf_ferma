@@ -22,7 +22,6 @@ namespace wpf_ferma
     public partial class healthAdd : Page
     {
         public static ObservableCollection<Horse> horses { get; set; }
-        
         public healthAdd()
         {
             InitializeComponent();
@@ -32,14 +31,13 @@ namespace wpf_ferma
 
         private void ok_click(object sender, RoutedEventArgs e)
         {
-            var h = new Horse_health(); 
-            
-            h.ID_Horse = (cb_name.SelectedItem as Horse).ID;
-            h.Weight = Convert.ToInt32(txt_weight.Text);
-            h.Body_mass_index = Convert.ToInt32(txt_mass_index.Text);
-            h.Body_temperature = Convert.ToInt32(txt_bodytemp.Text);
-            h.Dental_condition = txt_dentalCondit.Text.ToString();
-            h.DataReport = Convert.ToDateTime(txt_data.Text);
+            var h = new Horse_health();
+            //h.ID_Horse = Convert.ToInt32( cb_name);
+            h.Weight = Convert.ToInt32(txt_weight);
+            h.Body_mass_index = Convert.ToInt32(txt_mass_index);
+            h.Body_temperature = Convert.ToInt32(txt_bodytemp);
+            h.Dental_condition = txt_dentalCondit.ToString();
+            h.DataReport = Convert.ToDateTime(txt_data);
             DataBaseConnect.connection.Horse_health.Add(h);
             DataBaseConnect.connection.SaveChanges();
             NavigationService.GoBack();
